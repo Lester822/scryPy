@@ -44,4 +44,4 @@ You can use:
 2. Card.data() to get all of the details provided by scryfall including things like mtgo_id, color, mana value, etc. (many of these may come to quick methods later)
 3. Card.overview() to get a string with the key details of the cards
 
-That's it, expect more updates soon including easier searching!
+That's it, expect more updates soon including easier searching.
