@@ -5,7 +5,7 @@ from cardlist import CardList
 from card import Card
 
 
-def card_list_search(link):
+def _card_list_search(link):
     """Send Scryfall Request and Return A CardList object"""
     response = requests.get(link)
     response = response.content.decode('utf8')
@@ -17,7 +17,7 @@ def card_list_search(link):
         raise Exception(f'No Cards Found With Parameter at link {link}')
 
 
-def card_search(link):
+def _card_search(link):
     """Send Scryfall Request and Return A Card object"""
     response = requests.get(link)
     response = response.content.decode('utf8')
@@ -40,26 +40,36 @@ def random_card():
 
 def get_card(card_name):
     """Return a Card Object for a card with the exact given name"""
-    return card_search(f'http://api.scryfall.com/cards/search?q=!"{card_name}"')
+    return _card_search(f'http://api.scryfall.com/cards/search?q=!"{card_name}"')
 
 
 def name_search(card_name):
     """Return a CardList of all results with name search"""
-    return card_list_search(f'http://api.scryfall.com/cards/search?q=name={card_name}')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=name={card_name}')
 
 
 def oracle_search(text):
     """Return a CardList of all results with oracle text search"""
-    return card_list_search(f'http://api.scryfall.com/cards/search?q=o="{text}"')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=o="{text}"')
+
+
+def type_search(card_type):
+    """Return a CardList of all results with the type or subtype given"""
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=type="{card_type}"')
+
+
+def set_search(set):
+    """Return a CardList of all results from a given set"""
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=set={set}')
 
 
 def advanced_search(arguments):
     """Return a CardList of all results with advanced argument search (using Scryfall args)"""
-    return card_list_search(f'http://api.scryfall.com/cards/search?q={arguments}')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q={arguments}')
 
 
 def get_printings(card):
     """Return a CardList of all other versions of an inputted Card object"""
-    return card_list_search(f'http://api.scryfall.com/cards/search?q=%21"{card.name()}"+include%3Aextras&unique=prints')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=%21"{card.name()}"+include%3Aextras&unique=prints')
 
 

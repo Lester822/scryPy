@@ -27,3 +27,6 @@ class Card:
 
     def __repr__(self):
         return f"{self._name} ({self._set})"
+
+    def __eq__(self, other):
+        return self._data['name'] == other.data()['name']

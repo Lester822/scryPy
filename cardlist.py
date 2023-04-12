@@ -25,6 +25,17 @@ class CardList:
         """Return the first Card object in the list"""
         return self._cards[0]
 
+    def in_both(self, other):
+        """Return a CardList of cards that are in both CardLists"""
+        combined = []
+        for card in self._cards:
+            for other_card in other.cards():
+                print(other_card, card)
+                if card == other_card:
+                    combined.append(card)
+        return combined
+
+
     def __str__(self):
         return str(self._cards)
 
