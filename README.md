@@ -37,9 +37,9 @@ You can get a list of cards based on a specific search using any of these:
 
 Every Card has many built in methods to retrieve information about the Card. If the Card does not have the requested information (for example, the power of an instant) a 'LookupError' is raised.
 
-## You can get the following information 
+## Cards have the following methods to return data
 To see what is returned, check out Scryfall's page which describes each data type https://scryfall.com/docs/api/cards.
-
+"""
 'card.all_parts()'  
 'card.card_faces()'  
 'card.cmc()'  
@@ -110,3 +110,8 @@ To see what is returned, check out Scryfall's page which describes each data typ
 'card.preview_previewed_at()'  
 'card.preview_source_uri()'  
 'card.preview_source()'  
+"""
+## Cards Can Also...
+
+'card.overview()' | Return a nicely formatting output for easy display  
+'card.data()' | Return the scryfall given data, if there is something else you need to access  
