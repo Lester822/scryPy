@@ -11,21 +11,15 @@ Instructions:
 
 How To Use:
 
-ScryPy functions primarly using two main data types, "CardLists" and "Cards". These can be generated in several ways, but most inquires result in "CardLists" that contain many cards within them.
+ScryPy functions primarly using a data type called "Card" which represents a singular printing of a Magic: The Gathering card.
 
 # Generating Card Lists and Cards
 
-There are several ways to generate both CardLists and Cards.
+There are several ways to get Cards, with most resulting in a list of Cards that matches the search result.
 
-To generate CardLists you can use any of the following:
-1. scrypy.name_search(CARDNAME) -> A Card List with every card that matches the name (including partial matches, no duplicates)
-2. scrypy.oracle_search(TEXT) -> A Card List with every card that matches the text in the rules text (including partial matches, no duplicates)
-3. scrypy.advanced_search(ARGS) -> A Card List with every card that matches the given Scryfall created arguments
-4. scrypy.get_printings(CARD) -> A Card List of every version of a Card object that was passed in (for example, if you passed in a Shock Card objecet, it would return a Card List with every version of Shock)
-
-To generate individual cards, you can access Card Lists or use any of the following:
-1. scrypy.get_card(CARDNAME) -> A Card with the exact name (will pull the most recent printing)
-2. scrypy.random_card() -> A Card generated randomly
+You can get cards through any of the following: 
+> scrypy.get_card
+Returns a card object with the EXACT given name
 
 # Using CardLists and Cards
 
