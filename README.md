@@ -39,7 +39,7 @@ Every Card has many built in methods to retrieve information about the Card. If 
 
 ## Cards have the following methods to return data
 To see what is returned, check out Scryfall's page which describes each data type https://scryfall.com/docs/api/cards.
-"""
+  
 'card.all_parts()'  
 'card.card_faces()'  
 'card.cmc()'  
