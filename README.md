@@ -17,14 +17,14 @@ ScryPy functions primarly using a data type called "Card" which represents a sin
 
 There are several ways to get Cards, with most resulting in a list of Cards that matches the search result.
 
-You can get a singular card object individually using any of these:
+You can get a singular card object individually using any of these:  
     `scrypy.get_card()` returns a card object with the EXACT given name  
     `scrypy.random_card()` returns a card at random from all possible Magic cards  
 
-You can get a list of cards based on a specific search using any of these:
+You can get a list of cards based on a specific search using any of these:  
     `scrypy.name_search(card_name)` | Search based on given card name  
     `scrypy.oracle_search(oracle_text)` | Search based on given card text (oracle)  
-    `scrypy.color_search(colors, search_type)` | Search based on card color in WUBRG standard formatting.  
+    `scrypy.color_search(colors, search_type)` | Search based on card color in WUBRG standard formatting. Search type defaults to EXACT match,  but can be "exact" "at least" "at most" "up to" and "more than" by inputting those as strings into search_type.
     `scrypy.type_search(card_type)` | Search based on given type  
     `scrypy.set_search(set)` | Search based on given set  
     `scrypy.advanced_search(arguments)` | Search using any scryfall syntax  
