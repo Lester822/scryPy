@@ -35,29 +35,77 @@ You can get a list of cards based on a specific search using any of these:
 
 # Using Cards
 
-Every Card has many built in methods to retrieve information about the Card. If the Card does not have the requested information (for example, the power of an instant) a `LookupError` is raised.
+Every Card has many built in methods to retrieve information about the Card. If the Card does not have the requested information (for example, the power of an instant) a 'LookupError' is raised.
 
-You can get the following information:
-`card.all_parts()` | List | If this card is closely related to other cards, this property will be an array with Related Card Objects.  
-`card.card_faces()` | List | A list of Card Face objects, if this card is multifaced.  
-`card.cmc()` | Float | 	The card’s mana value. Note that some funny cards have fractional mana costs.  
-`card.color_identity()` | String | This card’s color identity.  
-`card.color_indicator()`| String | The colors in this card’s color indicator, if any. A null value for this field indicates the card does not have one..  
-`card.colors()`| String | This card’s colors, if the overall card has colors defined by the rules. Otherwise the colors will be on the card_faces objects, see below.  
-`card.edhrec_rank()` | Int | This card’s overall rank/popularity on EDHREC. Not all cards are ranked.  
-`card.hand_modifier()` | String | This card’s hand modifier, if it is Vanguard card. This value will contain a delta, such as -1.  
-`card.keywords()` | List | 	A list of keywords that this card uses, such as `Flying` and `Cumulative upkeep`.
-`card.layout()`  | String | A code for this card’s layout.
-`card.legalities()` | Object | An object describing the legality of this card across play formats. Possible legalities are legal, not_legal, restricted, and banned.
-`card.life_modifier()` | String | This card’s life modifier, if it is Vanguard card. This value will contain a delta, such as +2.
-`card.loyalty()`
-`card.mana_cost()`
-`card.name()`
-`card.oracle_text()`
-`card.oversized()`
-`card.penny_rank()`
-`card.power()`
-`card.produced_mana()`
-`card.reserved()`
-`card.toughness()`
-`card.type_line()`
+## You can get the following information (to see what is returned, check out Scryfall's page which describes each data type https://scryfall.com/docs/api/cards):
+
+'card.all_parts()'
+'card.card_faces()'
+'card.cmc()'
+'card.color_identity()'
+'card.color_indicator()'
+'card.colors()'
+'card.edhrec_rank()'
+'card.hand_modifier()'
+'card.keywords()'
+'card.layout()'
+'card.legalities()'
+'card.life_modifier()'
+'card.loyalty()'
+'card.mana_cost()'
+'card.name()'
+'card.oracle_text()'
+'card.oversized()'
+'card.penny_rank()'
+'card.power()'
+'card.produced_mana()'
+'card.reserved()'
+'card.toughness()'
+'card.type_line()'
+
+'card.artist()'  
+'card.attraction_lights()'  
+'card.booster()'  
+'card.border_color()'  
+'card.card_back_id()'  
+'card.collector_number()'  
+'card.content_warning()'  
+'card.digital()'  
+'card.finishes()'  
+'card.flavor_name()'  
+'card.flavor_text()'  
+'card.frame_effects()'  
+'card.frame()'  
+'card.full_art()'  
+'card.games()'  
+'card.highres_image()'  
+'card.illustration_id()'  
+'card.image_status()'  
+'card.image_uris()'  
+'card.prices()'  
+'card.printed_name()'  
+'card.printed_text()'  
+'card.printed_type_line()'  
+'card.promo()'  
+'card.promo_types()'  
+'card.purchase_uris()'  
+'card.rarity()'  
+'card.related_uris()'  
+'card.released_at()'  
+'card.reprint()'  
+'card.scryfall_set_uri()'  
+'card.set_name()'  
+'card.set_search_uri()'  
+'card.set_type()'  
+'card.set_uri()'  
+'card.set_code()'  
+'card.set_id()'  
+'card.story_spotlight()'  
+'card.textless()'  
+'card.variation()'  
+'card.variation_of()'  
+'card.security_stamp()'  
+'card.watermark()'  
+'card.preview_previewed_at()'  
+'card.preview_source_uri()'  
+'card.preview_source()'  
