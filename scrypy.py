@@ -54,6 +54,17 @@ def oracle_search(oracle_text):
     """Return a CardList of all results with oracle text search"""
     return _card_list_search(f'http://api.scryfall.com/cards/search?q=o="{oracle_text}"')
 
+def type_search(card_type):
+    """Return a CardList of all results with the type or subtype given"""
+    if isinstance(card_type, list):
+        card_type_search = ''
+        for mtg_type in card_type:
+            card_type_search += f'type={mtg_type} AND '
+        card_type_search = card_type_search[:-5]
+    elif isinstance(card_type, string):
+        card_type_search = f'type={card_type}'
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q="{card_type_search}"')
+
 def color_search(colors, search_type='exact'):
     """Return a CardList of all results with color search"""
     if search_type == 'exact':
@@ -70,10 +81,73 @@ def color_search(colors, search_type='exact'):
         raise LookupError(f'Invalid color search type {search_type}')
     return _card_list_search(f'http://api.scryfall.com/cards/search?q=color{oper}"{colors}"')
 
-def type_search(card_type):
-    """Return a CardList of all results with the type or subtype given"""
-    return _card_list_search(f'http://api.scryfall.com/cards/search?q=type="{card_type}"')
+def color_identity_search(colors):
+    """Return a CardList of all results with the given color identity"""
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=commander={colors}"')
 
+def mana_value_search(mana_value, search_type='exact'):
+    """Return a CardList of all results with the given mana value"""
+    if search_type == 'exact':
+        oper = '='
+    elif search_type == 'at least':
+        oper = '>='
+    elif search_type == 'at most':
+        oper = '<='
+    elif search_type == 'up to':
+        oper = '<'
+    elif search_type == 'more than':
+        oper = '>'
+    else:
+        raise LookupError(f'Invalid mana value search type {search_type}')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=mv{oper}{mana_value}"')
+
+def power_search(power, search_type='exact'):
+    """Return a CardList of all results with the given power"""
+    if search_type == 'exact':
+        oper = '='
+    elif search_type == 'at least':
+        oper = '>='
+    elif search_type == 'at most':
+        oper = '<='
+    elif search_type == 'up to':
+        oper = '<'
+    elif search_type == 'more than':
+        oper = '>'
+    else:
+        raise LookupError(f'Invalid power search type {search_type}')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=power{oper}{power}"')
+
+def toughness_search(toughness, search_type='exact'):
+    """Return a CardList of all results with the given toughness"""
+    if search_type == 'exact':
+        oper = '='
+    elif search_type == 'at least':
+        oper = '>='
+    elif search_type == 'at most':
+        oper = '<='
+    elif search_type == 'up to':
+        oper = '<'
+    elif search_type == 'more than':
+        oper = '>'
+    else:
+        raise LookupError(f'Invalid toughness search type {search_type}')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=toughness{oper}{toughness}"')
+
+def loyalty_search(loyalty, search_type='exact'):
+    """Return a CardList of all results with the given loyalty"""
+    if search_type == 'exact':
+        oper = '='
+    elif search_type == 'at least':
+        oper = '>='
+    elif search_type == 'at most':
+        oper = '<='
+    elif search_type == 'up to':
+        oper = '<'
+    elif search_type == 'more than':
+        oper = '>'
+    else:
+        raise LookupError(f'Invalid loyalty search type {search_type}')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q=loy{oper}{power}"')
 
 def set_search(set):
     """Return a CardList of all results from a given set"""
@@ -88,5 +162,3 @@ def advanced_search(arguments):
 def get_printings(card):
     """Return a CardList of all other versions of an inputted Card object"""
     return _card_list_search(f'http://api.scryfall.com/cards/search?q=%21"{card.name()}"+include%3Aextras&unique=prints')
-
-
