@@ -1,7 +1,6 @@
 import json
 import requests
 
-from cardlist import CardList
 from card import Card
 
 
