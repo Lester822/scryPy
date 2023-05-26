@@ -61,9 +61,9 @@ def type_search(card_type):
         for mtg_type in card_type:
             card_type_search += f'type={mtg_type} AND '
         card_type_search = card_type_search[:-5]
-    elif isinstance(card_type, string):
+    elif isinstance(card_type, str):
         card_type_search = f'type={card_type}'
-    return _card_list_search(f'http://api.scryfall.com/cards/search?q="{card_type_search}"')
+    return _card_list_search(f'http://api.scryfall.com/cards/search?q={card_type_search}')
 
 def color_search(colors, search_type='exact'):
     """Return a CardList of all results with color search"""
